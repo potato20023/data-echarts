@@ -1,0 +1,232 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.clearfix:after{
+    display: block;
+    clear: both;
+    content:'';
+}
+.left{
+    float:left;
+}
+.right{
+    float: right;
+}
+
+// vh
+// @vv: 10.8vh
+
+
+  #app {
+    width: 100%;
+    min-width: 1920px;
+    // height:100vh;
+    // height:100%;
+    height: 1080px;
+    background-image: url("./assets/image/bg5.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+  }
+.statistics{
+    display: flex;
+    justify-content: space-around;
+}
+#app .title{
+    width: 100%;
+    min-width: 1200px;
+}
+
+// 绑定班级,注册班级
+#bind{
+    width: 800px;
+    height:15px;
+    // border: 1px solid red;
+    position: relative;
+    top:-25px;
+    display: flex;
+    justify-content: space-around;
+    .item{
+
+        width: 200px;
+        height: 65px;
+        background-image: url('./assets/image/bind_bg.png');
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        margin: 0 60px;
+        position: relative;
+        overflow: hidden;
+        .top{
+            width: 100%;
+            height: 60px;
+            img{
+                width: 40px;
+                height: 40px;
+                float: left;
+                margin: 15px;
+            }
+            .text{
+                float: left;
+                padding: 10px 0;
+                .name{
+                    font-size: 16px;
+                    // line-height: 20px;
+                    color:#fff;
+                }
+                .num{
+                    font-size: 24px;
+                    line-height: 24px;
+                    color: aqua;
+                }
+            }
+        }
+        .move{
+            position: absolute;
+            bottom: 0;
+            height: 7px;
+            animation: mymove 7s infinite;
+            animation-timing-function:linear;
+        }
+        @keyframes mymove{
+            from{left: 0;}
+            to{left: -336px;}
+        }
+    }
+}
+
+
+
+// 背景,标题公共样式
+.model{
+    color:#fff;
+    background-image: url('./assets/image/model_bg.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-bottom:10px;
+
+    .model_title{
+        width: 50%;
+        height: 40px;
+        margin: 0 auto;
+        background-image: url('./assets/image/model_title.png');
+        background-repeat: no-repeat;
+        background-size: 100% 50px;
+        text-align: center;
+        font-size: 20px;
+        line-height: 40px;
+    }
+}
+
+
+// 资源使用率
+.resources{
+    width: 500px;
+    height: 300px;  
+    position: relative;  
+    #resources{
+        width: 500px;
+        height: 250px;
+    }
+    .res_num{
+        position: absolute;
+        top: 100px;
+        left: 50px;
+        .res_num_item{
+            width: 140px;
+            height: 50PX;
+            text-align: center;
+            line-height: 25px;
+            background-image: url('./assets/image/text_bg1.png');
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            margin-bottom: 15px;
+            .name{
+                color:#fff;
+                font-size: 16px;
+            }
+            .num{
+                color:#00DEDF;
+                font-size: 20px;
+            }
+        }
+    }
+}
+
+// 备课统计
+.histogram{
+    width: 500px;
+    height: 300px;
+    #histogram{
+        width: 500px;
+        height: 250px;
+    }
+}
+
+// 资源分类
+.sort{
+    width: 500px;
+    height: 300px;
+    #sort{
+        width: 500px;
+        height: 250px;
+    }
+}
+
+// 直播统计
+.direct{
+    width: 500px;
+    height: 300px;
+    #direct{
+        width: 500px;
+        height: 250px;
+    }
+}
+
+// 班级文化
+.culture{
+    width: 500px;
+    height: 300px;
+    #culture{
+        width: 500px;
+        height: 250px;
+    }
+}
+
+
+// 图书馆统计
+.library{
+    width: 500px;
+    height: 300px;
+    #library{
+        width: 500px;
+        height: 250px;
+    }
+}
+
+// 地图
+.map1{
+    width: 700px;
+    height: 550px;
+    .map1{
+        width: 700px;
+        height:550px;
+    }
+}
+// 每日不在线统计
+.equipment{
+    width: 800px;
+    height: 300px;
+    margin-top:55px;
+    #equipment{
+        
+        width: 800px;
+        height: 250px;
+    }
+}
+
+
+
+
+
+
