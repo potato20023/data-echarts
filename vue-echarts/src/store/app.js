@@ -1,6 +1,10 @@
 import { getIndexD,getbindNumD,getresourceNumD,getliveNumD,getcultureNumD,getvideoNumD,getlessonNumD,getdayOnlineNumD,getresourceSortD } from '../api/api'
 
 const state = {
+    screen:{
+        screenWidth:'',
+        screenHeight:''
+    },    // 屏幕是否发生变化
     bindNum:{        // 注册班级数,在线班级数
         bindNum:'',   // 注册班级
         onlineNum:''   // 在线班级数
@@ -113,6 +117,10 @@ const state = {
 }
 
 const mutations = {
+    // 设置屏幕是否发生变化
+    'SET_SCREEN':(state, res) => {
+        state.screen = res
+    },
     // 设置注册班级数,在线班级数
     'SET_BIND_NUM':(state, res) => {
         state.bindNum = res

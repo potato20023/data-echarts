@@ -6,13 +6,14 @@
     <div class="res_num">
       <div class="res_num_item">
         <p class="name">资源使用量</p>
-        <p class="num">{{resourceNum.resourceNum}}</p>
+        <p class="num">100000{{resourceNum.resourceNum}}</p>
       </div>
       <div class="res_num_item">
         <p class="name">资源总量</p>
         <p class="num">{{resourceNum.allNum}}</p>
       </div>
     </div>
+    <div v-if="resourceNum.resourceNum != ''" class="percentage">{{resourceNum.resourceNum / resourceNum.allNum}}%</div>
     <!-- <div style="color:#fff;">{{resourceNum}}</div> -->
     <div id="resources">    
     </div>
@@ -31,7 +32,8 @@ export default {
     this.mmm()
   },
   computed: {
-    ...mapGetters(["resourceNum"])
+    ...mapGetters(["resourceNum","screen"]),
+    // percentage:this.resourceNum.resourceNum/this.resourceNum.allNum
   },
   methods: {
     mmm() {
@@ -49,7 +51,7 @@ export default {
                 right:30,
                 textStyle:{    
                   color:'#f3fcff',
-                  fontSize:16
+                  fontSize:18
                 },
                 data: ["资源使用量", "资源未使用量"]
             },
@@ -68,6 +70,7 @@ export default {
                   ],
                   label:{
                     normal:{
+                      show:false,   // 不显示分支出来的文字
                       fontSize:18
                     }
                   }
@@ -76,11 +79,17 @@ export default {
       };
 
       var chart = $this.$echarts.init(document.getElementById('resources'));
+      // chart.clear();
+      chart.resize();  //在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option)
     }
   },
   watch:{
     resourceNum:function(res){
+      this.mmm()
+    },
+    screen:function(res){
+      // console.log(res)
       this.mmm()
     }
   }

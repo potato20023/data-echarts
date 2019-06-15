@@ -19,7 +19,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["liveNum","liveEdu","liveCampus","liveTeaching","liveClass"])
+    ...mapGetters(["liveNum","liveEdu","liveCampus","liveTeaching","liveClass","screen"])
   },
  
   methods: {
@@ -65,7 +65,7 @@ export default {
           ],
           textStyle:{
             color:'#f3fcff',
-            fontSize:14
+            fontSize:18
           }
         },
         tooltip: {
@@ -90,14 +90,15 @@ export default {
               // { value: 250, name: "教学直播" }
             ],
             roseType: "radius",      // 圆饼类型
-            // label: {
-            //   normal: {
-            //     textStyle: {
-            //       //  // 显示文字样式
-            //       // color: "rgba(255, 255, 255, 1)"
-            //     }
-            //   }
-            // },
+            label: {
+              normal: {
+                textStyle: {
+                  //  // 显示文字样式
+                  // color: "rgba(255, 255, 255, 1)"
+                  fontSize:18
+                }
+              }
+            },
             // labelLine: {
             //   normal: {
             //     lineStyle: {
@@ -114,15 +115,18 @@ export default {
         color:['#0C81FE','#9A05F5', '#32B16C', '#44F0E9']
       };
 
-      setTimeout(()=>{
+      // setTimeout(()=>{
         let chart = $this.$echarts.init(document.getElementById("direct"));
-        console.log(222)
+        chart.resize();    //在容器大小发生改变时手动调整图标尺寸
         chart.setOption(option);
-      },300)
+      // },300)
     }
   },
   watch: {
     liveNum: function(res) {
+      this.mmm();
+    },
+    screen:function(res){
       this.mmm();
     }
   }

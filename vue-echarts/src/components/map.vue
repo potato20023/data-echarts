@@ -1,11 +1,12 @@
 <template>
   <div class="map1">
-    <div id="map1" style="width:700px;height:550px"></div>
+    <div id="map1" style="width:41vw;height:50vh"></div>
   </div>
 </template>
 
 <script>
 import echarts from "echarts";
+import {mapGetters} from 'vuex';
 export default {
   data() {
     return {
@@ -15,7 +16,9 @@ export default {
   mounted() {
     this.map1();
   },
-  computed: {},
+  computed: {
+    ...mapGetters(['screen'])
+  },
   methods: {
     map1() {
       let $this = this;
@@ -33,7 +36,7 @@ export default {
               textStyle: {
                 // 地图上文字样式
                 color: "#fff",
-                fontSize: "12"
+                fontSize: 16
               }
             },
             emphasis: {
@@ -41,7 +44,7 @@ export default {
               show: true,
               textStyle: {
                 color: "#670701",
-                fontSize: "14"
+                fontSize: 16
               }
             }
           },
@@ -155,7 +158,7 @@ export default {
                 textStyle: {
                   // 地图上文字样式
                   color: "#fff",
-                  fontSize: "12"
+                  fontSize: 16
                 }
               },
               emphasis: {
@@ -163,7 +166,7 @@ export default {
                 show: true,
                 textStyle: {
                   color: "#670701",
-                  fontSize: "14"
+                  fontSize: 16
                 }
               }
             },
@@ -280,7 +283,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "九龙街道办"
+              name: "九龙"
             },
             geometry: {
               type: "MultiPolygon",
@@ -442,7 +445,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "昆阳街道办"
+              name: "昆阳"
             },
             geometry: {
               type: "MultiPolygon",
@@ -577,7 +580,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "盐都街道办"
+              name: "盐都"
             },
             geometry: {
               type: "MultiPolygon",
@@ -5369,7 +5372,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "马庄回族乡"
+              name: "马庄"
             },
             geometry: {
               type: "MultiPolygon",
@@ -5938,11 +5941,12 @@ export default {
         ]
       });
       var chart = echarts.init(document.getElementById("map1"));
+      chart.resize();    //在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
       chart.on("click", function(params) {
-        // console.log(params)
-        console.log(params.name + "---" + params.dataIndex);
-        console.log(params.name + "---" + params.value);
+        console.log(params)
+        // console.log(params.name + "---" + params.dataIndex);
+        // console.log(params.name + "---" + params.value);
 
         // 注册班级,在线班级
         $this.$store
@@ -5966,7 +5970,7 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               $this.$store.commit("SET_RESOURCE_NUM", {
                 resourceNum: res.data[0].resourceNum,
@@ -5981,7 +5985,7 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               $this.$store.commit("SET_LIVE_NUM", {
                 liveEdu: res.data[0].liveEdu, // 教育局会议
@@ -5998,7 +6002,7 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               $this.$store.commit("SET_CULTURE_NUM", {
                 photoNum: res.data[0].photoNum,
@@ -6014,7 +6018,7 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               $this.$store.commit("SET_LESSON_NUM", {
                 lessonSchool: res.data[0].lessonSchool,
@@ -6076,6 +6080,11 @@ export default {
 
         
       });
+    }
+  },
+  watch:{
+    screen:function(res){
+      this.map1()
     }
   }
 };

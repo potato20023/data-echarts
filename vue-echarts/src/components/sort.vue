@@ -16,9 +16,14 @@ export default {
   },
   mounted() {
     this.mmm();
+    // let $this = this
+    // window.onresize = function(){
+    //   let mychart = $this.$echarts.init(document.getElementById('sort'))
+    //   mychart.resize()
+    // }
   },
   computed:{
-    ...mapGetters(['resourceSort'])
+    ...mapGetters(['resourceSort','screen'])
   },
   methods: {
     mmm() {
@@ -46,7 +51,7 @@ export default {
           right: "4%",
           bottom: "3%",
           containLabel: true,
-          height:220   // 柱形图高度
+          // height:220   // 柱形图高度
         },
         xAxis: [
           {
@@ -60,7 +65,7 @@ export default {
                // 柱形图x轴文字样式
               textStyle: {
                 color: "#A4E4F7",
-                fontSize:16
+                fontSize:18
               }
             }
           }
@@ -90,7 +95,7 @@ export default {
             type: "bar", 
             barWidth: "30%",    // 圆柱宽度
             // data:$this.resourceSort.count,
-            data:[100,200,500,100,200,500,299],
+            data:[10000,20000,50000,10000,20000,50000,29900],
             itemStyle: {
               normal: {  
                 color: new $this.$echarts.graphic.LinearGradient(     // 圆柱颜色(渐变)
@@ -105,7 +110,7 @@ export default {
                   position:'top',
                   textStyle:{
                     color:'#f5f5f6',
-                    fontSize:14
+                    fontSize:18
                   }
                 }
               }
@@ -114,26 +119,18 @@ export default {
         ]
       };
       var hist = this.$echarts.init(document.getElementById("sort"));
+      // hist.clear();
+      // console.log('sort重绘')
+      hist.resize()
       hist.setOption(option);
-      // var zoomSize = 6;
-      // hist.on("click", function(params) {
-      //   console.log(
-      //     $this.dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]
-      //   );
-      //   hist.dispatchAction({
-      //     type: "dataZoom",
-      //     startValue:
-      //       $this.dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
-      //     endValue:
-      //       $this.dataAxis[
-      //         Math.min(params.dataIndex + zoomSize / 2, $this.datas.length - 1)
-      //       ]
-      //   });
-      // });
     }
   },
   watch:{
     cultureNum:function(res){
+      this.mmm()
+    },
+    screen:function(res){
+      // console.log(res)
       this.mmm()
     }
   }

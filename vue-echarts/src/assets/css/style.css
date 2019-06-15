@@ -18,9 +18,8 @@
 }
 
 #app {
-  width: 100%;
-  min-width: 1920px;
-  height: 1080px;
+  width: 100vw;
+  height: 100vh;
   background-image: url("./assets/image/bg5.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -33,62 +32,73 @@
 }
 
 #app .title {
-  width: 100%;
-  min-width: 1200px;
+  width: 100vw;
+  height: 12.03704vh;
 }
 
 #bind {
-  width: 800px;
-  height: 15px;
+  width: 41.66667vw;
+  height: 4.62963vh;
   position: relative;
-  top: -25px;
+  top: -2.31481vh;
   display: flex;
   justify-content: space-around;
 }
 
 #bind .item {
-  width: 200px;
-  height: 65px;
-  background-image: url("./assets/image/bind_bg.png");
+  height: 6.48148vh;
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  margin: 0 60px;
+  margin: 0 3.125vw;
   position: relative;
   overflow: hidden;
 }
 
 #bind .item .top {
   width: 100%;
-  height: 60px;
+  height: 6.48148vh;
 }
 
 #bind .item .top img {
-  width: 40px;
-  height: 40px;
+  width: 2.08333vw;
+  height: 3.7037vh;
   float: left;
-  margin: 15px;
+  margin: 1.38889vh 0.78125vw;
 }
 
 #bind .item .top .text {
   float: left;
-  padding: 10px 0;
 }
 
 #bind .item .top .text .name {
-  font-size: 16px;
+  font-size: 1.48148vh;
+  line-height: 1.85185vh;
   color: #fff;
 }
 
 #bind .item .top .text .num {
-  font-size: 24px;
-  line-height: 24px;
+  font-size: 2.77778vh;
+  line-height: 3.14815vh;
   color: aqua;
+}
+
+#bind .item .top .text .name1 {
+  font-size: 2.22222vh;
+  line-height: 4.62963vh;
+  color: #fff;
+}
+
+#bind .item .top .text .name1 .num1 {
+  font-size: 4.62963vh;
+  color: aqua !important;
+  position: relative;
+  top: 0.46296vh;
 }
 
 #bind .item .move {
   position: absolute;
   bottom: 0;
-  height: 7px;
+  height: 0.64815vh;
   animation: mymove 7s infinite;
   animation-timing-function: linear;
 }
@@ -98,7 +108,7 @@
     left: 0;
   }
   to {
-    left: -336px;
+    left: -17.5vw;
   }
 }
 
@@ -107,126 +117,134 @@
   background-image: url("./assets/image/model_bg.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  margin-bottom: 10px;
+  margin-bottom: 0.92593vh;
 }
 
 .model .model_title {
   width: 50%;
-  height: 40px;
+  height: 3.7037vh;
   margin: 0 auto;
   background-image: url("./assets/image/model_title.png");
   background-repeat: no-repeat;
-  background-size: 100% 50px;
+  background-size: 100% 4.62963vh;
   text-align: center;
-  font-size: 20px;
-  line-height: 40px;
+  font-size: 1.85185vh;
+  line-height: 3.7037vh;
 }
 
 .resources {
-  width: 500px;
-  height: 300px;
+  width: 26.04167vw;
+  height: 27.77778vh;
   position: relative;
 }
 
 .resources #resources {
-  width: 500px;
-  height: 250px;
+  width: 26.04167vw;
+  height: 23.14815vh;
 }
 
 .resources .res_num {
   position: absolute;
-  top: 100px;
-  left: 50px;
+  top: 9.25926vh;
+  left: 2.60417vw;
 }
 
 .resources .res_num .res_num_item {
-  width: 140px;
-  height: 50PX;
+  width: 7.29167vw;
+  height: 4.62963vh;
   text-align: center;
-  line-height: 25px;
+  line-height: 2.31481vh;
   background-image: url("./assets/image/text_bg1.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  margin-bottom: 15px;
+  margin-bottom: 1.38889vh;
 }
 
 .resources .res_num .res_num_item .name {
   color: #fff;
-  font-size: 16px;
+  font-size: 1.48148vh;
 }
 
 .resources .res_num .res_num_item .num {
   color: #00DEDF;
-  font-size: 20px;
+  font-size: 1.85185vh;
+}
+
+.resources .percentage {
+  font-size: 1.85185vh;
+  color: #fff;
+  position: absolute;
+  top: 46%;
+  left: 61%;
 }
 
 .histogram {
-  width: 500px;
-  height: 300px;
+  width: 26.04167vw;
+  height: 27.77778vh;
 }
 
 .histogram #histogram {
-  width: 500px;
-  height: 250px;
+  width: 26.04167vw;
+  height: 23.14815vh;
 }
 
 .sort {
-  width: 500px;
-  height: 300px;
+  width: 26.04167vw;
+  height: 27.77778vh;
 }
 
 .sort #sort {
-  width: 500px;
-  height: 250px;
+  width: 26.04167vw;
+  height: 23.14815vh;
 }
 
 .direct {
-  width: 500px;
-  height: 300px;
+  width: 26.04167vw;
+  height: 27.77778vh;
 }
 
 .direct #direct {
-  width: 500px;
-  height: 250px;
+  width: 26.04167vw;
+  height: 23.14815vh;
 }
 
 .culture {
-  width: 500px;
-  height: 300px;
+  width: 26.04167vw;
+  height: 27.77778vh;
 }
 
 .culture #culture {
-  width: 500px;
-  height: 250px;
+  width: 26.04167vw;
+  height: 23.14815vh;
 }
 
 .library {
-  width: 500px;
-  height: 300px;
+  width: 26.04167vw;
+  height: 27.77778vh;
 }
 
 .library #library {
-  width: 500px;
-  height: 250px;
+  width: 26.04167vw;
+  height: 23.14815vh;
 }
 
 .map1 {
-  width: 700px;
-  height: 550px;
+  width: 41.66667vw;
+  height: 50.92593vh;
 }
 
 .map1 .map1 {
-  width: 700px;
-  height: 550px;
+  width: 41.66667vw;
+  height: 50.92593vh;
 }
 
 .equipment {
-  width: 800px;
-  height: 300px;
-  margin-top: 55px;
+  width: 41.66667vw;
+  height: 27.77778vh;
+  margin-top: 1.85185vh;
 }
 
 .equipment #equipment {
-  width: 800px;
-  height: 250px;
+  width: 41.66667vw;
+  height: 23.14815vh;
 }

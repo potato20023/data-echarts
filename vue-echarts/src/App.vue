@@ -38,6 +38,12 @@ import equipment from './components/equipment';        // 设备不在线统计
 import sort from './components/sort';                 // 资源分类
 export default {
   name: "app",
+  data(){
+    return{
+      screenWidth:document.documentElement.clientWidth,   // 屏幕宽度
+      screenHeight:document.documentElement.clientHeight   // 屏幕高度
+    }
+  },
   components: {
     resource,
     live,
@@ -54,9 +60,26 @@ export default {
     this.mmm()
   },
   mounted(){
-    // this.mmm()
+    // // this.mmm()
+    // this.screen()   // 监听屏幕
+    let $this = this
+    window.onresize = function(){
+      $this.screenWidth = document.documentElement.clientWidth
+      $this.screenHeight = document.documentElement.clientHeight
+    }
   },
   methods:{
+    // 监听屏幕大小
+    // screen(){
+    //   let $this = this
+    //   window.onresize = () => {
+    //     return (()=>{
+    //       $this.screenWidth = document.html.clientWidth
+    //       $this.screenHeight = document.html.clientHeight
+    //     })()
+    //   }
+    // },
+    // 获取叶县数据
     mmm() {      
       let $this = this
       // 获取首页数据
@@ -213,6 +236,23 @@ export default {
       // });
 
 
+    }
+  },
+  watch:{
+    screenWidth:function(res){
+      // console.log(res)
+      // console.log('宽度变化了')
+      // this.mmm();
+      this.$store.commit('SET_SCREEN',{
+        screenWidth:res
+      })
+    },
+    screenHeight:function(res){
+      // console.log('高度变化了')
+      // this.mmm();
+      this.$store.commit('SET_SCREEN',{
+        screenHeight:res
+      })
     }
   }
 };

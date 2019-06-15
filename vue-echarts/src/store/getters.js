@@ -1,5 +1,6 @@
 
 const getters = {
+    screen:state => state.screen,    // 屏幕宽高
     bindNum:state => state.bindNum,    // 绑定班级数
     resourceNum:state => state.resourceNum,   // 资源使用率
     liveNum:state => state.liveNum,      // 直播统计

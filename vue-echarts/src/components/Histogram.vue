@@ -16,7 +16,7 @@ export default {
     this.mmm();
   },
   computed: {
-    ...mapGetters(["lessonNum"])
+    ...mapGetters(["lessonNum","screen"])
   },
   methods: {
     mmm() {
@@ -44,7 +44,7 @@ export default {
           right: "4%",
           bottom: "3%",
           containLabel: true,
-          height: 220 // 柱形图高度
+          // height: 220 // 柱形图高度
         },
         xAxis: [
           {
@@ -55,10 +55,11 @@ export default {
             },
             axisLabel: {
               // 柱形图x轴文字样式
-              textStyle: {
-                color: "#A4E4F7",
-                fontSize:16
-              }
+              // textStyle: {
+              //   color: "#A4E4F7",
+                fontSize:18,
+                color:"#A4E4F7"
+              // }
             }
           }
         ],
@@ -67,10 +68,10 @@ export default {
             type: "value",
             axisLabel: {
               // 柱形图y轴文字样式
-              textStyle: {
+              // textStyle: {
                 color: "#A4E4F7",
                 fontSize:16
-              }
+              // }
             },
             splitLine: {
               // 分隔线样式
@@ -102,7 +103,7 @@ export default {
                   position:'top',
                   textStyle:{
                     color:'#f5f5f6',
-                    fontSize:14
+                    fontSize:18
                   }
                 }
               }
@@ -111,26 +112,30 @@ export default {
         ]
       };
       var hist = this.$echarts.init(document.getElementById("histogram"));
+      hist.resize();    //在容器大小发生改变时手动调整图标尺寸
       hist.setOption(option);
-      var zoomSize = 6;
-      hist.on("click", function(params) {
-        console.log(
-          $this.dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]
-        );
-        hist.dispatchAction({
-          type: "dataZoom",
-          startValue:
-            $this.dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
-          endValue:
-            $this.dataAxis[
-              Math.min(params.dataIndex + zoomSize / 2, $this.datas.length - 1)
-            ]
-        });
-      });
+      // var zoomSize = 6;
+      // hist.on("click", function(params) {
+      //   console.log(
+      //     $this.dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]
+      //   );
+      //   hist.dispatchAction({
+      //     type: "dataZoom",
+      //     startValue:
+      //       $this.dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
+      //     endValue:
+      //       $this.dataAxis[
+      //         Math.min(params.dataIndex + zoomSize / 2, $this.datas.length - 1)
+      //       ]
+      //   });
+      // });
     }
   },
   watch: {
     lessonNum: function(res) {
+      this.mmm();
+    },
+    screen:function(res){
       this.mmm();
     }
   }

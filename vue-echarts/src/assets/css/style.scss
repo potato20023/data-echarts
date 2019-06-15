@@ -15,82 +15,97 @@
 }
 
 // vh
-// @vv: 10.8vh
+$vw: 19.2;
+$vh: 10.8;
 
 
-  #app {
-    width: 100%;
-    min-width: 1920px;
-    // height:100vh;
-    // height:100%;
-    height: 1080px;
-    background-image: url("./assets/image/bg5.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    position: relative;
-  }
+
+#app {
+width: 100vw;
+// min-width: 1920px;
+height:100vh;
+// height:100%;
+// height: 1080px;
+background-image: url("./assets/image/bg5.jpg");
+background-repeat: no-repeat;
+background-size: 100% 100%;
+position: relative;
+}
 .statistics{
     display: flex;
     justify-content: space-around;
 }
 #app .title{
-    width: 100%;
-    min-width: 1200px;
+    width: 100vw;
+    height:130/$vh + vh;
+    // min-width: 1200px;
 }
 
 // 绑定班级,注册班级
 #bind{
-    width: 800px;
-    height:15px;
+    width: 800/$vw + vw;
+    height:50/$vh + vh;
     // border: 1px solid red;
     position: relative;
-    top:-25px;
+    top:-25/$vh + vh;
     display: flex;
     justify-content: space-around;
     .item{
 
-        width: 200px;
-        height: 65px;
-        background-image: url('./assets/image/bind_bg.png');
+        // width: 200/$vw + vw;
+        height: 70/$vh + vh;
+        // background-image: url('./assets/image/bind_bg.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        margin: 0 60px;
+        margin: 0 60/$vw + vw;
         position: relative;
         overflow: hidden;
         .top{
             width: 100%;
-            height: 60px;
+            height: 70/$vh + vh;
             img{
-                width: 40px;
-                height: 40px;
+                width: 40/$vw + vw;
+                height: 40/$vh + vh;
                 float: left;
-                margin: 15px;
+                margin: 15/$vh + vh 15/$vw + vw;
             }
             .text{
                 float: left;
-                padding: 10px 0;
+                // padding: 10/$vh + vh 0;
                 .name{
-                    font-size: 16px;
-                    // line-height: 20px;
+                    font-size: 16/$vh + vh;
+                    line-height: 20/$vh + vh;
                     color:#fff;
                 }
                 .num{
-                    font-size: 24px;
-                    line-height: 24px;
+                    font-size: 30/$vh + vh;
+                    line-height: 34/$vh + vh;
                     color: aqua;
+                }
+                .name1{
+                    font-size: 24/$vh + vh;
+                    line-height: 50/$vh + vh;
+                    color:#fff;
+                    .num1{
+                        font-size: 50/$vh + vh;
+                        // line-height: 40/$vh + vh;
+                        color: aqua !important;
+                        position: relative;
+                        top:5/$vh + vh;
+                    }
                 }
             }
         }
         .move{
             position: absolute;
             bottom: 0;
-            height: 7px;
+            height: 7/$vh + vh;
             animation: mymove 7s infinite;
             animation-timing-function:linear;
         }
         @keyframes mymove{
             from{left: 0;}
-            to{left: -336px;}
+            to{left: -336/$vw + vw;}
         }
     }
 }
@@ -103,125 +118,132 @@
     background-image: url('./assets/image/model_bg.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    margin-bottom:10px;
+    margin-bottom:10/$vh + vh;
 
     .model_title{
         width: 50%;
-        height: 40px;
+        height: 40/$vh + vh;
         margin: 0 auto;
         background-image: url('./assets/image/model_title.png');
         background-repeat: no-repeat;
-        background-size: 100% 50px;
+        background-size: 100% 50/$vh + vh;
         text-align: center;
-        font-size: 20px;
-        line-height: 40px;
+        font-size: 20/$vh + vh;
+        line-height: 40/$vh + vh;
     }
 }
 
 
 // 资源使用率
 .resources{
-    width: 500px;
-    height: 300px;  
+    width: 500/$vw + vw;
+    height: 300/$vh + vh;
     position: relative;  
     #resources{
-        width: 500px;
-        height: 250px;
+        width:500/$vw + vw;
+        height: 250/$vh + vh;
     }
     .res_num{
         position: absolute;
-        top: 100px;
-        left: 50px;
+        top: 100/$vh + vh;
+        left: 50/$vw + vw;
         .res_num_item{
-            width: 140px;
-            height: 50PX;
+            width: 140/$vw + vw;
+            height: 50/$vh + vh;
             text-align: center;
-            line-height: 25px;
+            line-height: 25/$vh + vh;
             background-image: url('./assets/image/text_bg1.png');
             background-repeat: no-repeat;
             background-size: 100% 100%;
-            margin-bottom: 15px;
+            margin-bottom: 15/$vh + vh;
             .name{
                 color:#fff;
-                font-size: 16px;
+                font-size: 16/$vh + vh;
             }
             .num{
                 color:#00DEDF;
-                font-size: 20px;
+                font-size: 20/$vh + vh;
             }
         }
+    }
+    .percentage{
+        font-size: 20/$vh + vh;
+        color:#fff;
+        position: absolute;
+        top:46%;
+        left:61%;
     }
 }
 
 // 备课统计
 .histogram{
-    width: 500px;
-    height: 300px;
+    width: 500/$vw + vw;
+    height: 300/$vh + vh;
     #histogram{
-        width: 500px;
-        height: 250px;
+        width: 500/$vw + vw;
+        height: 250/$vh + vh;
     }
 }
 
 // 资源分类
 .sort{
-    width: 500px;
-    height: 300px;
+    width: 500/$vw + vw;
+    height: 300/$vh + vh;
     #sort{
-        width: 500px;
-        height: 250px;
+        width: 500/$vw + vw;
+        height: 250/$vh + vh;
     }
 }
 
 // 直播统计
 .direct{
-    width: 500px;
-    height: 300px;
+    width: 500/$vw + vw;
+    height: 300/$vh + vh;
     #direct{
-        width: 500px;
-        height: 250px;
+        width: 500/$vw + vw;
+        height: 250/$vh + vh;
     }
 }
 
 // 班级文化
 .culture{
-    width: 500px;
-    height: 300px;
+    width: 500/$vw + vw;
+    height: 300/$vh + vh;
     #culture{
-        width: 500px;
-        height: 250px;
+        width: 500/$vw + vw;
+        height: 250/$vh + vh;
     }
 }
 
 
 // 图书馆统计
 .library{
-    width: 500px;
-    height: 300px;
+    width: 500/$vw + vw;
+    height: 300/$vh + vh;
     #library{
-        width: 500px;
-        height: 250px;
+        width: 500/$vw + vw;
+        height: 250/$vh + vh;
     }
 }
 
 // 地图
 .map1{
-    width: 700px;
-    height: 550px;
+    width: 800/$vw + vw;
+    height: 550/$vh + vh;
     .map1{
-        width: 700px;
-        height:550px;
+        width: 800/$vw + vw;
+        height:550/$vh + vh;
     }
 }
 // 每日不在线统计
 .equipment{
-    width: 800px;
-    height: 300px;
-    margin-top:55px;
+    width: 800/$vw + vw;
+    height: 300/$vh + vh;
+    margin-top:20/$vh + vh;
     #equipment{
         
-        width: 800px;
-        height: 250px;
+        width: 800/$vw + vw;
+        height: 250/$vh + vh;
     }
 }
 

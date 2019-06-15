@@ -12,7 +12,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["videoNum"])
+    ...mapGetters(["videoNum","screen"])
   },
   mounted() {
     this.mmm();
@@ -44,7 +44,7 @@ export default {
           data:['图书馆点击量','图书馆资源总量'],
           textStyle:{
             color:'#f3fcff',
-            fontSize:14
+            fontSize:18
           }
         },
         grid: {
@@ -52,7 +52,7 @@ export default {
           right: "4%",
           bottom: "3%",
           containLabel: true,
-          height: 220 // 图表高度
+          // height: 220 // 图表高度
         },
         xAxis: [
           {
@@ -63,7 +63,8 @@ export default {
             axisLabel: {
               // 横轴样式
               textStyle: {
-                color: "#A4E4F7"
+                color: "#A4E4F7",
+                fontSize:18
               }
             }
           }
@@ -103,7 +104,7 @@ export default {
                   position:'top',
                   textStyle:{
                     color:'#f5f5f6',
-                    fontSize:14
+                    fontSize:18
                   }
                 }
               },
@@ -159,13 +160,17 @@ export default {
       };
 
       var chart = $this.$echarts.init(document.getElementById("library"));
+      chart.resize();    //在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
     }
   },
   watch:{
     videoNum:function(res){
       this.mmm()
-      console.log(this.videoNum)
+      // console.log(this.videoNum)
+    },
+    screen:function(res){
+      this.mmm()
     }
   }
 };

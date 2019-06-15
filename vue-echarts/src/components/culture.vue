@@ -18,7 +18,7 @@ export default {
     this.mmm();
   },
   computed:{
-    ...mapGetters(['cultureNum'])
+    ...mapGetters(['cultureNum','screen'])
   },
   methods: {
     mmm() {
@@ -46,7 +46,7 @@ export default {
           right: "4%",
           bottom: "3%",
           containLabel: true,
-          height:220      // 柱形图高度
+          // height:220      // 柱形图高度
         },
         xAxis: [
           {
@@ -58,7 +58,7 @@ export default {
             axisLabel:{    // 横轴文字样式
                 textStyle:{
                     color:'#A4E4F7',
-                    fontSize:16
+                    fontSize:18
                 }
             }
           }
@@ -101,7 +101,7 @@ export default {
                   position:'top',
                   textStyle:{
                     color:'#f5f5f6',
-                    fontSize:14
+                    fontSize:18
                   }
                 }
               }
@@ -110,11 +110,15 @@ export default {
         ]
       };
       var hist = this.$echarts.init(document.getElementById("culture"));
+      hist.resize();    //在容器大小发生改变时手动调整图标尺寸
       hist.setOption(option);
     }
   },
   watch:{
     cultureNum:function(res){
+      this.mmm()
+    },
+    screen:function(res){
       this.mmm()
     }
   }
