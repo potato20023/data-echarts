@@ -27,9 +27,18 @@ height:100vh;
 // height:100%;
 // height: 1080px;
 background-image: url("./assets/image/bg5.jpg");
+// background:url('./assets/image/video1.mp4');
 background-repeat: no-repeat;
 background-size: 100% 100%;
 position: relative;
+#video1{
+    position: absolute;
+    top: 0;
+    left: 0;
+    // width:100vw;
+    // height:100vh;
+    z-index: 1000;
+}
 }
 .statistics{
     display: flex;
@@ -137,11 +146,11 @@ position: relative;
 // 资源使用率
 .resources{
     width: 500/$vw + vw;
-    height: 300/$vh + vh;
+    height: 320/$vh + vh;
     position: relative;  
     #resources{
         width:500/$vw + vw;
-        height: 250/$vh + vh;
+        height: 270/$vh + vh;
     }
     .res_num{
         position: absolute;
@@ -171,17 +180,17 @@ position: relative;
         color:#fff;
         position: absolute;
         top:46%;
-        left:61%;
+        left:63%;
     }
 }
 
 // 备课统计
 .histogram{
     width: 500/$vw + vw;
-    height: 300/$vh + vh;
+    height: 280/$vh + vh;
     #histogram{
         width: 500/$vw + vw;
-        height: 250/$vh + vh;
+        height: 230/$vh + vh;
     }
 }
 
@@ -198,20 +207,20 @@ position: relative;
 // 直播统计
 .direct{
     width: 500/$vw + vw;
-    height: 300/$vh + vh;
+    height: 320/$vh + vh;
     #direct{
         width: 500/$vw + vw;
-        height: 250/$vh + vh;
+        height: 270/$vh + vh;
     }
 }
 
 // 班级文化
 .culture{
     width: 500/$vw + vw;
-    height: 300/$vh + vh;
+    height: 280/$vh + vh;
     #culture{
         width: 500/$vw + vw;
-        height: 250/$vh + vh;
+        height: 230/$vh + vh;
     }
 }
 
@@ -222,7 +231,8 @@ position: relative;
     height: 300/$vh + vh;
     #library{
         width: 500/$vw + vw;
-        height: 250/$vh + vh;
+        height: 240/$vh + vh;
+        margin-top: 10/$vh + vh;
     }
 }
 

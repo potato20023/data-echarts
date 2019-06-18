@@ -21,9 +21,10 @@ export default {
     //   let mychart = $this.$echarts.init(document.getElementById('sort'))
     //   mychart.resize()
     // }
+    console.log(this.resourceSort)
   },
   computed:{
-    ...mapGetters(['resourceSort','screen'])
+    ...mapGetters(['resourceSort',"screenWidth","screenHeight"])
   },
   methods: {
     mmm() {
@@ -51,13 +52,13 @@ export default {
           right: "4%",
           bottom: "3%",
           containLabel: true,
-          // height:220   // 柱形图高度
+          height:'80%'   // 柱形图高度
         },
         xAxis: [
           {
             type: "category",
-            data: [ "教案","课件","习题",'素材',"试卷","微课","其他"],
-            // data:$this.resourceSort.name,
+            // data: [ "教案","课件","习题",'素材',"试卷","微课","其他"],
+            data:$this.resourceSort.name,
             axisTick: {
               alignWithLabel: true
             },
@@ -65,7 +66,7 @@ export default {
                // 柱形图x轴文字样式
               textStyle: {
                 color: "#A4E4F7",
-                fontSize:18
+                fontSize:18 * $this.screenHeight / 1080
               }
             }
           }
@@ -77,7 +78,7 @@ export default {
                 // 柱形图y轴文字样式
               textStyle: {
                 color: "#A4E4F7",
-                fontSize:16
+                fontSize:16 * $this.screenHeight / 1080
               }
             },
             splitLine: {
@@ -94,8 +95,8 @@ export default {
             name: "",
             type: "bar", 
             barWidth: "30%",    // 圆柱宽度
-            // data:$this.resourceSort.count,
-            data:[10000,20000,50000,10000,20000,50000,29900],
+            data:$this.resourceSort.count,
+            // data:[6388,6691,3606,29965,0,0,1],
             itemStyle: {
               normal: {  
                 color: new $this.$echarts.graphic.LinearGradient(     // 圆柱颜色(渐变)
@@ -110,7 +111,7 @@ export default {
                   position:'top',
                   textStyle:{
                     color:'#f5f5f6',
-                    fontSize:18
+                    fontSize:18 * $this.screenHeight / 1080
                   }
                 }
               }
@@ -126,12 +127,15 @@ export default {
     }
   },
   watch:{
-    cultureNum:function(res){
+    resourceSort:function(res){
       this.mmm()
     },
-    screen:function(res){
+    screenWidth:function(res){
       // console.log(res)
       this.mmm()
+    },
+    screenHeight:function(res){
+      this.mmm();
     }
   }
 };

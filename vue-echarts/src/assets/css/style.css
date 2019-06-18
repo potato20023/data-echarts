@@ -26,6 +26,13 @@
   position: relative;
 }
 
+#app #video1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
 .statistics {
   display: flex;
   justify-content: space-around;
@@ -134,13 +141,13 @@
 
 .resources {
   width: 26.04167vw;
-  height: 27.77778vh;
+  height: 29.62963vh;
   position: relative;
 }
 
 .resources #resources {
   width: 26.04167vw;
-  height: 23.14815vh;
+  height: 25vh;
 }
 
 .resources .res_num {
@@ -175,17 +182,17 @@
   color: #fff;
   position: absolute;
   top: 46%;
-  left: 61%;
+  left: 63%;
 }
 
 .histogram {
   width: 26.04167vw;
-  height: 27.77778vh;
+  height: 25.92593vh;
 }
 
 .histogram #histogram {
   width: 26.04167vw;
-  height: 23.14815vh;
+  height: 21.2963vh;
 }
 
 .sort {
@@ -200,22 +207,22 @@
 
 .direct {
   width: 26.04167vw;
-  height: 27.77778vh;
+  height: 29.62963vh;
 }
 
 .direct #direct {
   width: 26.04167vw;
-  height: 23.14815vh;
+  height: 25vh;
 }
 
 .culture {
   width: 26.04167vw;
-  height: 27.77778vh;
+  height: 25.92593vh;
 }
 
 .culture #culture {
   width: 26.04167vw;
-  height: 23.14815vh;
+  height: 21.2963vh;
 }
 
 .library {
@@ -225,7 +232,8 @@
 
 .library #library {
   width: 26.04167vw;
-  height: 23.14815vh;
+  height: 22.22222vh;
+  margin-top: 0.92593vh;
 }
 
 .map1 {

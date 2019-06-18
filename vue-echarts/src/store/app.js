@@ -1,18 +1,21 @@
 import { getIndexD,getbindNumD,getresourceNumD,getliveNumD,getcultureNumD,getvideoNumD,getlessonNumD,getdayOnlineNumD,getresourceSortD } from '../api/api'
 
 const state = {
-    screen:{
-        screenWidth:'',
-        screenHeight:''
-    },    // 屏幕是否发生变化
+    townId:410422,
+    // screen:{
+    //     screenWidth:'',
+    //     screenHeight:''
+    // },    // 屏幕是否发生变化
+    screenWidth:document.documentElement.clientWidth,
+    screenHeight:document.documentElement.clientHeight,
     bindNum:{        // 注册班级数,在线班级数
         bindNum:'',   // 注册班级
         onlineNum:''   // 在线班级数
     },      
-    resourceNum:{     // 资源使用统计
+    // resourceNum:{     // 资源使用统计
         resourceNum:'',   // 资源使用量
-        allNum:''         // 资源总量
-    },  
+        allNum:'',         // 资源总量
+    // },  
     liveNum:{           // 直播统计
         liveEdu:'',     // 教育局会议
         liveCampus:'',     //  校园电台
@@ -117,9 +120,16 @@ const state = {
 }
 
 const mutations = {
+    // 设置当前地区编号
+    'SET_TOWN_ID':(state, res) => {
+        state.townId = res
+    },
     // 设置屏幕是否发生变化
-    'SET_SCREEN':(state, res) => {
-        state.screen = res
+    'SET_SCREEN_WIDTH':(state, res) => {
+        state.screenWidth = res
+    },
+    'SET_SCREEN_HEIGHT':(state, res) => {
+        state.screenHeight = res
     },
     // 设置注册班级数,在线班级数
     'SET_BIND_NUM':(state, res) => {
@@ -128,6 +138,10 @@ const mutations = {
     // 设置资源使用统计
     'SET_RESOURCE_NUM':(state, res) => {
         state.resourceNum = res
+    },
+    // 设置资源总量
+    'SET_RESOURCE_ALL':(state, res) => {
+        state.allNum = res
     },
     // 设置直播统计
     'SET_LIVE_NUM':(state, res) => {

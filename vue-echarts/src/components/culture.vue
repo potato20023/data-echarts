@@ -18,7 +18,7 @@ export default {
     this.mmm();
   },
   computed:{
-    ...mapGetters(['cultureNum','screen'])
+    ...mapGetters(['cultureNum',"screenWidth","screenHeight"])
   },
   methods: {
     mmm() {
@@ -46,19 +46,19 @@ export default {
           right: "4%",
           bottom: "3%",
           containLabel: true,
-          // height:220      // 柱形图高度
+          height:'80%'      // 柱形图高度
         },
         xAxis: [
           {
             type: "category",
-            data: ["手抄报", "班级相册"],
+            data: ["班级相册","手抄报"],
             axisTick: {
               alignWithLabel: true
             },
             axisLabel:{    // 横轴文字样式
                 textStyle:{
                     color:'#A4E4F7',
-                    fontSize:18
+                    fontSize:18 * $this.screenHeight / 1080
                 }
             }
           }
@@ -69,7 +69,7 @@ export default {
             axisLabel:{
                 textStyle:{
                     color:'#A4E4F7',
-                    fontSize:16
+                    fontSize:16 * $this.screenHeight / 1080
                 }
             },
             splitLine: {
@@ -86,7 +86,7 @@ export default {
             name: "",
             type: "bar",
             barWidth: "30%",   // 圆柱宽度
-            data: [$this.cultureNum.photoNum, $this.cultureNum.paperNum],
+            data: [$this.cultureNum.photoNum,$this.cultureNum.paperNum],
             itemStyle: {
               normal: {   
                 color: new $this.$echarts.graphic.LinearGradient(   // 圆柱颜色(渐变)
@@ -101,7 +101,7 @@ export default {
                   position:'top',
                   textStyle:{
                     color:'#f5f5f6',
-                    fontSize:18
+                    fontSize:18 * $this.screenHeight / 1080
                   }
                 }
               }
@@ -118,8 +118,15 @@ export default {
     cultureNum:function(res){
       this.mmm()
     },
-    screen:function(res){
+    // screen:function(res){
+    //   this.mmm()
+    // }
+    screenWidth:function(res){
+      // console.log(res)
       this.mmm()
+    },
+    screenHeight:function(res){
+      this.mmm();
     }
   }
 };

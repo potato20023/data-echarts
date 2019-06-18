@@ -4,6 +4,7 @@ import service from './service'
 // 创建实例
 const requestD = axios.create({
         baseURL: service.url,
+        // baseURL:'http://192.168.18.101:10000',
         timeout: 5000
     })
     // 添加请求拦截器

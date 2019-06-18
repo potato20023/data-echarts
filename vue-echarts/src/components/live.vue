@@ -19,7 +19,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["liveNum","liveEdu","liveCampus","liveTeaching","liveClass","screen"])
+    ...mapGetters(["liveNum","liveEdu","liveCampus","liveTeaching","liveClass","screenWidth","screenHeight"])
   },
  
   methods: {
@@ -65,7 +65,7 @@ export default {
           ],
           textStyle:{
             color:'#f3fcff',
-            fontSize:18
+            fontSize:18 * $this.screenHeight / 1080
           }
         },
         tooltip: {
@@ -77,7 +77,7 @@ export default {
             name: "直播间访问次数",
             type: "pie",
             radius: "55%",
-            center: ["50%", "50%"],
+            center: ["50%", "46%"],
 
             data: [
               { value: $this.liveEdu, name: "教育局会议" },
@@ -89,13 +89,13 @@ export default {
               // { value: 400, name: "校园电台" },
               // { value: 250, name: "教学直播" }
             ],
-            roseType: "radius",      // 圆饼类型
+            // roseType: "radius",      // 圆饼类型
             label: {
               normal: {
                 textStyle: {
                   //  // 显示文字样式
                   // color: "rgba(255, 255, 255, 1)"
-                  fontSize:18
+                  fontSize:18 * $this.screenHeight / 1080
                 }
               }
             },
@@ -112,7 +112,7 @@ export default {
       
           }
         ],
-        color:['#0C81FE','#9A05F5', '#32B16C', '#44F0E9']
+        color:['#9A05F5','#0C81FE', '#32B16C', '#44F0E9']
       };
 
       // setTimeout(()=>{
@@ -126,7 +126,14 @@ export default {
     liveNum: function(res) {
       this.mmm();
     },
-    screen:function(res){
+    // screen:function(res){
+    //   this.mmm();
+    // }
+    screenWidth:function(res){
+      // console.log(res)
+      this.mmm()
+    },
+    screenHeight:function(res){
       this.mmm();
     }
   }

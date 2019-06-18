@@ -77,7 +77,7 @@ export function getdayOnlineNumD(data) {
 export function getresourceSortD(data) {
     return requestD({
         method: 'get',
-        url: '',
+        url: '/v6/screen/resourceNum/category/list',
         params: data
     })
 };

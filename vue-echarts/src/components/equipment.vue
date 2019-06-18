@@ -12,7 +12,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapGetters(["dayOnlineNum","screen"])
+    ...mapGetters(["dayOnlineNum","screenWidth","screenHeight"])
   },
   mounted() {
     this.mmm();
@@ -43,7 +43,7 @@ export default {
           right: "4%",
           bottom: "3%",
           containLabel: true,
-          // height: 220 // 图表高度
+          height: '80%' // 图表高度
         },
         xAxis: [
           {
@@ -55,7 +55,7 @@ export default {
               // 横轴样式
               textStyle: {
                 color: "#A4E4F7",
-                fontSize:16
+                fontSize:16 * $this.screenHeight / 1080
               }
             }
           }
@@ -66,7 +66,7 @@ export default {
             axisLabel: {
               textStyle: {
                 color: "#A4E4F7",
-                fontSize:16
+                fontSize:16 * $this.screenHeight / 1080
               }
             },
             splitLine: {
@@ -95,7 +95,7 @@ export default {
                   position:'top',
                   textStyle:{
                     color:'#f5f5f6',
-                    fontSize:18
+                    fontSize:18 * $this.screenHeight / 1080
                   }
                 }
               },
@@ -134,7 +134,7 @@ export default {
           //         position:'top',
           //         textStyle:{
           //           color:'#f5f5f6',
-          //           fontSize:18
+          //           fontSize:18 * $this.screenHeight / 1080
           //         }
           //       }
           //     }
@@ -152,7 +152,14 @@ export default {
     dayOnlineNum: function(res) {
       this.mmm();
     },
-    screen:function(res){
+    // screen:function(res){
+    //   this.mmm();
+    // }
+    screenWidth:function(res){
+      // console.log(res)
+      this.mmm()
+    },
+    screenHeight:function(res){
       this.mmm();
     }
   }

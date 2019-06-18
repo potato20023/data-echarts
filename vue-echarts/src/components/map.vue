@@ -17,7 +17,7 @@ export default {
     this.map1();
   },
   computed: {
-    ...mapGetters(['screen'])
+    ...mapGetters(["screenWidth","screenHeight"])
   },
   methods: {
     map1() {
@@ -36,7 +36,7 @@ export default {
               textStyle: {
                 // 地图上文字样式
                 color: "#fff",
-                fontSize: 16
+                fontSize: 16 * $this.screenHeight / 1080
               }
             },
             emphasis: {
@@ -44,17 +44,17 @@ export default {
               show: true,
               textStyle: {
                 color: "#670701",
-                fontSize: 16
+                fontSize: 16 * $this.screenHeight / 1080
               }
             }
           },
           itemStyle: {
             areaColor: "#102062", // 地图背景颜色
             borderColor: "#5D97CB", // 地图边框颜色
-            borderWidth: 2,
+            borderWidth: 2 * $this.screenHeight / 1080,
             shadowColor: "#7ec3ea", // 阴影颜色
-            shadowOffsetX: "7", // 阴影方向，长度
-            shadowOffsetY: "7" // 阴影方向，长度
+            shadowOffsetX: 7 * $this.screenHeight / 1080, // 阴影方向，长度
+            shadowOffsetY: 7 * $this.screenHeight / 1080 // 阴影方向，长度
           },
           emphasis: {
             // 高亮样式
@@ -70,75 +70,75 @@ export default {
           },
           data: [
             {
-              name: "九龙街道办",
+              name: "九龙",
               value: "410422001000"
             },
             {
-              name: "昆阳街道办",
+              name: "昆阳",
               value: "410422002000"
             },
             {
-              name: "盐都街道办",
+              name: "盐都",
               value: "410422003000"
             },
             {
-              name: "龚店镇",
+              name: "龚店",
               value: "410422205000"
             },
             {
-              name: "洪庄杨镇",
+              name: "洪庄杨",
               value: "410422109000"
             },
             {
-              name: "邓李乡",
+              name: "邓李",
               value: "410422210000"
             },
             {
-              name: "水寨乡",
+              name: "水寨",
               value: "410422208000"
             },
             {
-              name: "廉村镇",
+              name: "廉村",
               value: "410422106000"
             },
             {
-              name: "仙台镇",
+              name: "仙台",
               value: "410422103000"
             },
             {
-              name: "龙泉乡",
+              name: "龙泉",
               value: "410422207000"
             },
             {
-              name: "辛店镇",
+              name: "辛店",
               value: "410422108000"
             },
             {
-              name: "保安镇",
+              name: "保安",
               value: "410422102000"
             },
             {
-              name: "常村镇",
+              name: "常村",
               value: "410422107000"
             },
             {
-              name: "夏李乡",
+              name: "夏李",
               value: "410422201000"
             },
             {
-              name: "叶邑镇",
+              name: "叶邑",
               value: "410422105000"
             },
             {
-              name: "田庄乡",
+              name: "田庄",
               value: "410422204000"
             },
             {
-              name: "马庄回族乡",
+              name: "马庄",
               value: "410422203000"
             },
             {
-              name: "任店镇",
+              name: "任店",
               value: "410422101000"
             }
           ]
@@ -158,7 +158,7 @@ export default {
                 textStyle: {
                   // 地图上文字样式
                   color: "#fff",
-                  fontSize: 16
+                  fontSize: 16 * $this.screenHeight / 1080
                 }
               },
               emphasis: {
@@ -166,14 +166,14 @@ export default {
                 show: true,
                 textStyle: {
                   color: "#670701",
-                  fontSize: 16
+                  fontSize: 16 * $this.screenHeight / 1080
                 }
               }
             },
             itemStyle: {
               areaColor: "#102062", // 地图背景颜色
               borderColor: "#5D97CB", // 地图边框颜色
-              borderWidth: 2
+              borderWidth: 2 * $this.screenHeight / 1080
               // shadowColor: '#7ec3ea', // 阴影颜色
               // shadowOffsetX: '3', // 阴影方向，长度
               // shadowOffsetY: '3' // 阴影方向，长度
@@ -192,75 +192,75 @@ export default {
             },
             data: [
               {
-                name: "九龙街道办",
+                name: "九龙",
                 value: "410422001000"
               },
               {
-                name: "昆阳街道办",
+                name: "昆阳",
                 value: "410422002000"
               },
               {
-                name: "盐都街道办",
+                name: "盐都",
                 value: "410422003000"
               },
               {
-                name: "龚店镇",
+                name: "龚店",
                 value: "410422205000"
               },
               {
-                name: "洪庄杨镇",
+                name: "洪庄杨",
                 value: "410422109000"
               },
               {
-                name: "邓李乡",
+                name: "邓李",
                 value: "410422210000"
               },
               {
-                name: "水寨乡",
+                name: "水寨",
                 value: "410422208000"
               },
               {
-                name: "廉村镇",
+                name: "廉村",
                 value: "410422106000"
               },
               {
-                name: "仙台镇",
+                name: "仙台",
                 value: "410422103000"
               },
               {
-                name: "龙泉乡",
+                name: "龙泉",
                 value: "410422207000"
               },
               {
-                name: "辛店镇",
+                name: "辛店",
                 value: "410422108000"
               },
               {
-                name: "保安镇",
+                name: "保安",
                 value: "410422102000"
               },
               {
-                name: "常村镇",
+                name: "常村",
                 value: "410422107000"
               },
               {
-                name: "夏李乡",
+                name: "夏李",
                 value: "410422201000"
               },
               {
-                name: "叶邑镇",
+                name: "叶邑",
                 value: "410422105000"
               },
               {
-                name: "田庄乡",
+                name: "田庄",
                 value: "410422204000"
               },
               {
-                name: "马庄回族乡",
+                name: "马庄",
                 value: "410422203000"
               },
               {
-                name: "任店镇",
+                name: "任店",
                 value: "410422101000"
               }
             ]
@@ -276,7 +276,6 @@ export default {
         //     }
         // }
       };
-
       echarts.registerMap("叶县", {
         type: "FeatureCollection",
         features: [
@@ -833,7 +832,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "龚店镇"
+              name: "龚店"
             },
             geometry: {
               type: "MultiPolygon",
@@ -1095,7 +1094,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "洪庄杨镇"
+              name: "洪庄杨"
             },
             geometry: {
               type: "MultiPolygon",
@@ -1458,7 +1457,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "邓李乡"
+              name: "邓李"
             },
             geometry: {
               type: "MultiPolygon",
@@ -1731,7 +1730,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "水寨乡"
+              name: "水寨"
             },
             geometry: {
               type: "MultiPolygon",
@@ -1964,7 +1963,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "廉村镇"
+              name: "廉村"
             },
             geometry: {
               type: "MultiPolygon",
@@ -2287,7 +2286,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "仙台镇"
+              name: "仙台"
             },
             geometry: {
               type: "MultiPolygon",
@@ -2585,7 +2584,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "龙泉乡"
+              name: "龙泉"
             },
             geometry: {
               type: "MultiPolygon",
@@ -2877,7 +2876,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "辛店镇"
+              name: "辛店"
             },
             geometry: {
               type: "MultiPolygon",
@@ -3368,7 +3367,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "保安镇"
+              name: "保安"
             },
             geometry: {
               type: "MultiPolygon",
@@ -3761,7 +3760,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "常村镇"
+              name: "常村"
             },
             geometry: {
               type: "MultiPolygon",
@@ -4457,7 +4456,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "夏李乡"
+              name: "夏李"
             },
             geometry: {
               type: "MultiPolygon",
@@ -4848,7 +4847,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "叶邑镇"
+              name: "叶邑"
             },
             geometry: {
               type: "MultiPolygon",
@@ -5112,7 +5111,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "田庄乡"
+              name: "田庄"
             },
             geometry: {
               type: "MultiPolygon",
@@ -5502,7 +5501,7 @@ export default {
           {
             type: "Feature",
             properties: {
-              name: "任店镇"
+              name: "任店"
             },
             geometry: {
               type: "MultiPolygon",
@@ -5944,10 +5943,10 @@ export default {
       chart.resize();    //在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
       chart.on("click", function(params) {
-        console.log(params)
+        // console.log(params)
         // console.log(params.name + "---" + params.dataIndex);
-        // console.log(params.name + "---" + params.value);
-
+        console.log(params.name + "---" + params.value);
+        $this.$store.commit('SET_TOWN_ID',params.value);
         // 注册班级,在线班级
         $this.$store
           .dispatch("getbindNum", {
@@ -5955,7 +5954,7 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            // console.log(res);
+            console.log(res);
             if (res.data) {
               $this.$store.commit("SET_BIND_NUM", {
                 bindNum: res.data[0].bindNum,
@@ -5970,12 +5969,9 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            // console.log(res);
+            console.log(res);
             if (res.data) {
-              $this.$store.commit("SET_RESOURCE_NUM", {
-                resourceNum: res.data[0].resourceNum,
-                allNum: 250000
-              });
+              $this.$store.commit("SET_RESOURCE_NUM",res.data[0].resourceNum,);
             }
           });
         // 直播统计
@@ -5985,7 +5981,7 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            // console.log(res);
+            console.log(res);
             if (res.data) {
               $this.$store.commit("SET_LIVE_NUM", {
                 liveEdu: res.data[0].liveEdu, // 教育局会议
@@ -6002,7 +5998,7 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            // console.log(res);
+            console.log(res);
             if (res.data) {
               $this.$store.commit("SET_CULTURE_NUM", {
                 photoNum: res.data[0].photoNum,
@@ -6010,7 +6006,6 @@ export default {
               });
             }
           });
-
         // 备课统计
         $this.$store
           .dispatch("getlessonNum", {
@@ -6018,7 +6013,7 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            // console.log(res);
+            console.log(res);
             if (res.data) {
               $this.$store.commit("SET_LESSON_NUM", {
                 lessonSchool: res.data[0].lessonSchool,
@@ -6034,7 +6029,7 @@ export default {
             timeStamp: ""
           })
           .then(res => {
-            // console.log(res);
+            console.log(res);
             if (res.data) {
               let count = [];
               let time = [];
@@ -6053,38 +6048,20 @@ export default {
               });
             }
           });
-
-        // 资源分类
-        // $this.$store.dispatch("getresourceSort", {
-        //     areaCode: "410422",
-        //     timeStamp: ""
-        //   }).then(res => {
-        //     if (res.data) {
-        //       let count = [];
-        //       let name = [];
-        //       let total = 0;
-        //       let data = res.data;
-        //       data.forEach(item => {
-        //         count.push(item.count);
-        //         name.push(item.name);
-        //         total++;
-        //         if (total >= data.length) {
-        //           $this.store.commit("SET_SORT_NUM", {
-        //             count: count,
-        //             name: name
-        //           });
-        //         }
-        //       });
-        //     }
-        //   });
-
         
       });
     }
   },
   watch:{
-    screen:function(res){
+    // screen:function(res){
+    //   this.map1()
+    // }
+    screenWidth:function(res){
+      // console.log(res)
       this.map1()
+    },
+    screenHeight:function(res){
+      this.map1();
     }
   }
 };

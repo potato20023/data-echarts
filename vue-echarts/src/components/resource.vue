@@ -6,14 +6,15 @@
     <div class="res_num">
       <div class="res_num_item">
         <p class="name">资源使用量</p>
-        <p class="num">100000{{resourceNum.resourceNum}}</p>
+        <p class="num">{{resourceNum}}</p>
       </div>
       <div class="res_num_item">
         <p class="name">资源总量</p>
-        <p class="num">{{resourceNum.allNum}}</p>
+        <p class="num">{{allNum}}</p>
       </div>
     </div>
-    <div v-if="resourceNum.resourceNum != ''" class="percentage">{{resourceNum.resourceNum / resourceNum.allNum}}%</div>
+    <div v-if="resourceNum != '' && allNum != ''" class="percentage">{{Math.round(resourceNum/allNum*100)}}%</div>
+    <!-- <div class="percentage">{{Math.round(200/400*100)}}%</div> -->
     <!-- <div style="color:#fff;">{{resourceNum}}</div> -->
     <div id="resources">    
     </div>
@@ -26,14 +27,17 @@
 import { mapGetters,mapState } from "vuex";
 export default {
   data() {
-    return {};
+    return {
+      
+    };
   },
   mounted() {
-    this.mmm()
+    if(this.allNum){
+      this.mmm()
+    } 
   },
   computed: {
-    ...mapGetters(["resourceNum","screen"]),
-    // percentage:this.resourceNum.resourceNum/this.resourceNum.allNum
+    ...mapGetters(["resourceNum","allNum","screenWidth","screenHeight"])    
   },
   methods: {
     mmm() {
@@ -51,7 +55,7 @@ export default {
                 right:30,
                 textStyle:{    
                   color:'#f3fcff',
-                  fontSize:18
+                  fontSize:16 * $this.screenHeight / 1080
                 },
                 data: ["资源使用量", "资源未使用量"]
             },
@@ -63,15 +67,15 @@ export default {
                   radius: ["40%", "65%"],   // 圆环大小
                   center:['65%','45%'],
                   data: [
-                      { value: $this.resourceNum.resourceNum, name: "资源使用量" },
-                      { value: ($this.resourceNum.allNum - $this.resourceNum.resourceNum), name: "资源未使用量" },
+                      { value: $this.resourceNum, name: "资源使用量" },
+                      { value: ($this.allNum - $this.resourceNum), name: "资源未使用量" },
                       // { value: 12, name: "资源使用量" },
                       // { value: 16, name: "资源未使用量" }
                   ],
                   label:{
                     normal:{
                       show:false,   // 不显示分支出来的文字
-                      fontSize:18
+                      fontSize:18 * $this.screenHeight / 1080
                     }
                   }
               }
@@ -88,9 +92,15 @@ export default {
     resourceNum:function(res){
       this.mmm()
     },
-    screen:function(res){
+    allNum:function(res){
+      this.mmm()
+    },
+    screenWidth:function(res){
       // console.log(res)
       this.mmm()
+    },
+    screenHeight:function(res){
+      this.mmm();
     }
   }
 };
