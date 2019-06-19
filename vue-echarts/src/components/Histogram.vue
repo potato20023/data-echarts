@@ -111,33 +111,20 @@ export default {
           }
         ]
       };
-      var hist = this.$echarts.init(document.getElementById("histogram"));
-      hist.resize();    //在容器大小发生改变时手动调整图标尺寸
-      hist.setOption(option);
-      // var zoomSize = 6;
-      // hist.on("click", function(params) {
-      //   console.log(
-      //     $this.dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)]
-      //   );
-      //   hist.dispatchAction({
-      //     type: "dataZoom",
-      //     startValue:
-      //       $this.dataAxis[Math.max(params.dataIndex - zoomSize / 2, 0)],
-      //     endValue:
-      //       $this.dataAxis[
-      //         Math.min(params.dataIndex + zoomSize / 2, $this.datas.length - 1)
-      //       ]
-      //   });
-      // });
+      var chart = this.$echarts.init(document.getElementById("histogram"));
+      chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      chart.setOption(option);
+      // setTimeout(()=>{
+      //   window.onresize = function(){
+      //     chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      //   }
+      // },200) 
     }
   },
   watch: {
     lessonNum: function(res) {
       this.mmm();
     },
-    // screen:function(res){
-    //   this.mmm();
-    // },
     screenWidth:function(res){
       // console.log(res)
       this.mmm()

@@ -160,8 +160,13 @@ export default {
       };
 
       var chart = $this.$echarts.init(document.getElementById("library"));
-      chart.resize();    //在容器大小发生改变时手动调整图标尺寸
+      chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
+      // setTimeout(()=>{
+      //   window.onresize = function(){
+      //     chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      //   }
+      // },200) 
     }
   },
   watch:{
@@ -169,9 +174,6 @@ export default {
       this.mmm()
       // console.log(this.videoNum)
     },
-    // screen:function(res){
-    //   this.mmm()
-    // }
     screenWidth:function(res){
       // console.log(res)
       this.mmm()

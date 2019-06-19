@@ -115,20 +115,20 @@ export default {
         color:['#9A05F5','#0C81FE', '#32B16C', '#44F0E9']
       };
 
+      let chart = $this.$echarts.init(document.getElementById("direct"));
+       chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      chart.setOption(option);
       // setTimeout(()=>{
-        let chart = $this.$echarts.init(document.getElementById("direct"));
-        chart.resize();    //在容器大小发生改变时手动调整图标尺寸
-        chart.setOption(option);
-      // },300)
+      //   window.onresize = function(){
+      //     chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      //   }
+      // },200) 
     }
   },
   watch: {
     liveNum: function(res) {
       this.mmm();
     },
-    // screen:function(res){
-    //   this.mmm();
-    // }
     screenWidth:function(res){
       // console.log(res)
       this.mmm()

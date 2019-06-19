@@ -4,7 +4,7 @@
         <source src="@/assets/image/video1.mp4" type="video/mp4">
     </video> -->
     <!-- <router-view/> -->
-    <img src="@/assets/image/title.png" class="title" alt @click="mmm">
+    <img src="@/assets/image/title.png" class="title" alt @click="mmm(410422)">
     
     <div class="statistics">
       <div class="statistics-left">

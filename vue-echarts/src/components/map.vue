@@ -7,10 +7,10 @@
 <script>
 import echarts from "echarts";
 import {mapGetters} from 'vuex';
+import { setTimeout } from 'timers';
 export default {
   data() {
     return {
-      ifTime: true
     };
   },
   mounted() {
@@ -5940,21 +5940,33 @@ export default {
         ]
       });
       var chart = echarts.init(document.getElementById("map1"));
-      chart.resize();    //在容器大小发生改变时手动调整图标尺寸
+      chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
+      
+      // setTimeout(()=>{
+      //   window.onresize = function(){
+      //     chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      //   }
+      // },200) 
       chart.on("click", function(params) {
         // console.log(params)
         // console.log(params.name + "---" + params.dataIndex);
         console.log(params.name + "---" + params.value);
-        $this.$store.commit('SET_TOWN_ID',params.value);
+        $this.setOnclick(params.value)
+        
+      });
+    },
+    setOnclick(value){
+      let $this = this;
+      $this.$store.commit('SET_TOWN_ID',value);
         // 注册班级,在线班级
         $this.$store
           .dispatch("getbindNum", {
-            areaCode: params.value,
+            areaCode: value,
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               $this.$store.commit("SET_BIND_NUM", {
                 bindNum: res.data[0].bindNum,
@@ -5965,11 +5977,11 @@ export default {
         // 资源使用率
         $this.$store
           .dispatch("getresourceNum", {
-            areaCode: params.value,
+            areaCode: value,
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               $this.$store.commit("SET_RESOURCE_NUM",res.data[0].resourceNum,);
             }
@@ -5977,11 +5989,11 @@ export default {
         // 直播统计
         $this.$store
           .dispatch("getliveNum", {
-            areaCode: params.value,
+            areaCode: value,
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               $this.$store.commit("SET_LIVE_NUM", {
                 liveEdu: res.data[0].liveEdu, // 教育局会议
@@ -5994,11 +6006,11 @@ export default {
         // 班级文化
         $this.$store
           .dispatch("getcultureNum", {
-            areaCode: params.value,
+            areaCode: value,
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               $this.$store.commit("SET_CULTURE_NUM", {
                 photoNum: res.data[0].photoNum,
@@ -6009,11 +6021,11 @@ export default {
         // 备课统计
         $this.$store
           .dispatch("getlessonNum", {
-            areaCode: params.value,
+            areaCode: value,
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               $this.$store.commit("SET_LESSON_NUM", {
                 lessonSchool: res.data[0].lessonSchool,
@@ -6025,11 +6037,11 @@ export default {
         //设备每日在线统计
         $this.$store
           .dispatch("getdayOnlineNum", {
-            areaCode: params.value,
+            areaCode: value,
             timeStamp: ""
           })
           .then(res => {
-            console.log(res);
+            // console.log(res);
             if (res.data) {
               let count = [];
               let time = [];
@@ -6048,8 +6060,6 @@ export default {
               });
             }
           });
-        
-      });
     }
   },
   watch:{
@@ -6057,8 +6067,8 @@ export default {
     //   this.map1()
     // }
     screenWidth:function(res){
-      // console.log(res)
-      this.map1()
+      console.log('宽度改变')
+      this.map1();
     },
     screenHeight:function(res){
       this.map1();

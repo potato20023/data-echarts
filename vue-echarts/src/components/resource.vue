@@ -83,9 +83,13 @@ export default {
       };
 
       var chart = $this.$echarts.init(document.getElementById('resources'));
-      // chart.clear();
-      chart.resize();  //在容器大小发生改变时手动调整图标尺寸
+      chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option)
+      // setTimeout(()=>{
+      //   window.onresize = function(){
+      //     chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      //   }
+      // },200) 
     }
   },
   watch:{

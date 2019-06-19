@@ -109,18 +109,20 @@ export default {
           }
         ]
       };
-      var hist = this.$echarts.init(document.getElementById("culture"));
-      hist.resize();    //在容器大小发生改变时手动调整图标尺寸
-      hist.setOption(option);
+      var chart = this.$echarts.init(document.getElementById("culture"));
+      chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      chart.setOption(option);
+      // setTimeout(()=>{
+      //   window.onresize = function(){
+      //     chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      //   }
+      // },200) 
     }
   },
   watch:{
     cultureNum:function(res){
       this.mmm()
     },
-    // screen:function(res){
-    //   this.mmm()
-    // }
     screenWidth:function(res){
       // console.log(res)
       this.mmm()

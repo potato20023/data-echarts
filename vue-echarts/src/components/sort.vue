@@ -119,11 +119,14 @@ export default {
           }
         ]
       };
-      var hist = this.$echarts.init(document.getElementById("sort"));
-      // hist.clear();
-      // console.log('sort重绘')
-      hist.resize()
-      hist.setOption(option);
+      var chart = this.$echarts.init(document.getElementById("sort"));
+      chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      chart.setOption(option);
+      // setTimeout(()=>{
+      //   window.onresize = function(){
+      //     chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      //   }
+      // },200) 
     }
   },
   watch:{
