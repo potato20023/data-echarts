@@ -144,6 +144,7 @@ export default {
       };
 
       var chart = $this.$echarts.init(document.getElementById("equipment"));
+      // chart.clear();
       chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
       // setTimeout(()=>{
@@ -155,6 +156,7 @@ export default {
   },
   watch: {
     dayOnlineNum: function(res) {
+      console.log('更新了')
       this.mmm();
     },
     // screen:function(res){

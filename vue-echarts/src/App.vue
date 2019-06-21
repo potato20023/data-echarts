@@ -70,10 +70,7 @@ export default {
   },
   created() {
     let $this = this
-    this.mmm($this.townId);
-    this.library(410422);
-    this.equipment($this.townId);
-    this.sort();
+    this.mmm($this.townId)
   },
   mounted() {
     // this.mmm()
@@ -94,26 +91,12 @@ export default {
       let $this = this
       setInterval(() => {        
         this.mmm($this.townId);
-        this.library(410422);
-        this.equipment($this.townId);
-        this.sort();
-      }, 180000);
-      // setInterval(()=>{    // 12小时获取一次图书馆数据,每日在线统计
-      //   this.library(410422);
-      //   this.equipment($this.townId);
-      //   this.sort();
-      // },43200000)
+      }, 120000);
     },
     // 获取叶县数据
     mmm(num) {
       let $this = this;
-      // 获取首页数据
-      // this.$store.dispatch("getIndex", {
-      //   areaCode: num,
-      //   timeStamp: ""
-      // }).then(res => {
-      //   console.log(res);
-      // });
+      $this.$store.commit('SET_TOWN_ID',num);
       // 注册班级,在线班级
       this.$store
         .dispatch("getbindNum", {
@@ -191,14 +174,10 @@ export default {
           }
         });
       
-    },
-    // 图书馆统计
-    library(num){
-      let $this = this
       // 图书馆统计
       this.$store
         .dispatch("getvideoNum", {
-          areaCode: num,
+          areaCode: 410422,
           timeStamp: ""
         })
         .then(res => {
@@ -225,39 +204,33 @@ export default {
             });
           }
         });
-    },
-    // 资源分类
-    sort(){
-      let $this = this;
-       // 资源分类
+    
+     // 资源分类
       this.$store.dispatch('getresourceSort',{
         type:1,
         timeStamp:""
-      }).then(res=>{
-        if(res.data){
-          let count = []
-          let name = []
-          let total = 0
-          let data = res.data.categoryContent
-          $this.$store.commit('SET_RESOURCE_ALL',res.data.resourceTotalNum)   // 设置资源总量
-          data.forEach(item=>{
-            count.push(item.count)
-            name.push(item.typeName)
-            total++
-            if(total >= data.length){
-              $this.$store.commit('SET_SORT_NUM',{
-                count:count,
-                name:name
-              })
-            }
-          })
-        }
-      });
-    },
-    // 每日在线统计
-    equipment(num){
-      let $this = this
-      //设备每日在线统计
+        }).then(res=>{
+          if(res.data){
+            let count = []
+            let name = []
+            let total = 0
+            let data = res.data.categoryContent
+            $this.$store.commit('SET_RESOURCE_ALL',res.data.resourceTotalNum)   // 设置资源总量
+            data.forEach(item=>{
+              count.push(item.count)
+              name.push(item.typeName)
+              total++
+              if(total >= data.length){
+                $this.$store.commit('SET_SORT_NUM',{
+                  count:count,
+                  name:name
+                })
+              }
+            })
+          }
+        });
+
+    //设备每日在线统计
       this.$store
         .dispatch("getdayOnlineNum", {
           areaCode: num,
@@ -283,6 +256,10 @@ export default {
             });
           }
         });
+    
+    
+    
+    
     },
   },
   watch: {

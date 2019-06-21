@@ -13,7 +13,7 @@
         <p class="num">{{allNum}}</p>
       </div>
     </div>
-    <div v-if="resourceNum != '' && allNum != ''" class="percentage">{{Math.round(resourceNum/allNum*100)}}%</div>
+    <div v-if="resourceNum >= 0 && allNum >= 0" class="percentage">{{Math.round(resourceNum/allNum*100)}}%</div>
     <!-- <div class="percentage">{{Math.round(200/400*100)}}%</div> -->
     <!-- <div style="color:#fff;">{{resourceNum}}</div> -->
     <div id="resources">    
@@ -83,6 +83,7 @@ export default {
       };
 
       var chart = $this.$echarts.init(document.getElementById('resources'));
+      // chart.clear();
       chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option)
       // setTimeout(()=>{

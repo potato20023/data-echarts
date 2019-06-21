@@ -110,6 +110,7 @@ export default {
         ]
       };
       var chart = this.$echarts.init(document.getElementById("culture"));
+      // chart.clear();
       chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
       // setTimeout(()=>{

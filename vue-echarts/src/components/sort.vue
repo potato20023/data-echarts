@@ -15,13 +15,7 @@ export default {
     };
   },
   mounted() {
-    this.mmm();
-    // let $this = this
-    // window.onresize = function(){
-    //   let mychart = $this.$echarts.init(document.getElementById('sort'))
-    //   mychart.resize()
-    // }
-    console.log(this.resourceSort)
+    this.mmm()
   },
   computed:{
     ...mapGetters(['resourceSort',"screenWidth","screenHeight"])
@@ -120,6 +114,7 @@ export default {
         ]
       };
       var chart = this.$echarts.init(document.getElementById("sort"));
+      // chart.clear();
       chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
       // setTimeout(()=>{
