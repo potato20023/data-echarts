@@ -52,7 +52,7 @@ export default {
           right: "4%",
           bottom: "3%",
           containLabel: true,
-          height: '80%' // 图表高度
+          height: '75%' // 图表高度
         },
         xAxis: [
           {
@@ -160,7 +160,7 @@ export default {
       };
 
       var chart = $this.$echarts.init(document.getElementById("library"));
-      // chart.clear();
+      chart.clear();
       chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
       // setTimeout(()=>{

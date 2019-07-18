@@ -3,21 +3,24 @@
     <div class="model_title">
       资源使用率
     </div>
-    <div class="res_num">
-      <div class="res_num_item">
-        <p class="name">资源使用量</p>
-        <p class="num">{{resourceNum}}</p>
+    <div class="model_con">
+      <div class="res_num">
+        <div class="res_num_item">
+          <p class="name">资源使用量</p>
+          <p class="num">{{resourceNum}}</p>
+        </div>
+        <div class="res_num_item">
+          <p class="name">资源总量</p>
+          <p class="num">{{allNum}}</p>
+        </div>
       </div>
-      <div class="res_num_item">
-        <p class="name">资源总量</p>
-        <p class="num">{{allNum}}</p>
+      <div class="model_right">
+        <div v-if="resourceNum >= 0 && allNum > 0" class="percentage">{{Math.round(resourceNum/allNum*100)}}%</div>
+        <div id="resources"></div>
       </div>
+      
     </div>
-    <div v-if="resourceNum >= 0 && allNum >= 0" class="percentage">{{Math.round(resourceNum/allNum*100)}}%</div>
-    <!-- <div class="percentage">{{Math.round(200/400*100)}}%</div> -->
-    <!-- <div style="color:#fff;">{{resourceNum}}</div> -->
-    <div id="resources">    
-    </div>
+    
   </div>
   
   
@@ -65,12 +68,12 @@ export default {
                   name: "资源使用率",
                   type: "pie",
                   radius: ["40%", "65%"],   // 圆环大小
-                  center:['65%','45%'],
+                  center:['50%','45%'],
                   data: [
                       { value: $this.resourceNum, name: "资源使用量" },
                       { value: ($this.allNum - $this.resourceNum), name: "资源未使用量" },
-                      // { value: 12, name: "资源使用量" },
-                      // { value: 16, name: "资源未使用量" }
+                      // { value: 0, name: "资源使用量" },
+                      // { value: 0, name: "资源未使用量" }
                   ],
                   label:{
                     normal:{
@@ -83,7 +86,7 @@ export default {
       };
 
       var chart = $this.$echarts.init(document.getElementById('resources'));
-      // chart.clear();
+      chart.clear();
       chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option)
       // setTimeout(()=>{

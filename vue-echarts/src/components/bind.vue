@@ -25,7 +25,7 @@
             <div class="top">
                 <div class="text">
                     <p class="name1">注册班级:<span class="num1">{{bindNum.bindNum}}</span></p>
-                    
+                    <!-- <img src="@/assets/image/teacher_tab_bg.png" alt="" class="line-move"> -->
                 </div>
             </div>
         </div>

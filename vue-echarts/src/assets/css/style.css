@@ -75,6 +75,11 @@
 
 #bind .item .top .text {
   float: left;
+  position: relative;
+  background-image: url("./assets/image/teacher_tab_bg.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  animation: bg1 1s ease infinite;
 }
 
 #bind .item .top .text .name {
@@ -100,6 +105,15 @@
   color: aqua !important;
   position: relative;
   top: 0.46296vh;
+}
+
+@keyframes bg1 {
+  0% {
+    background-size: 0% 100%;
+  }
+  100% {
+    background-size: 100% 100%;
+  }
 }
 
 #bind .item .move {
@@ -146,43 +160,57 @@
 }
 
 .resources #resources {
-  width: 26.04167vw;
+  width: 15.625vw;
   height: 25vh;
 }
 
-.resources .res_num {
-  position: absolute;
-  top: 9.25926vh;
-  left: 2.60417vw;
+.resources .model_con {
+  width: 26.04167vw;
+  height: 25vh;
+  display: flex;
+  justify-content: space-between;
 }
 
-.resources .res_num .res_num_item {
+.resources .model_con .res_num {
+  width: 13.88889vh;
+  height: 15.74074vh;
+  padding: 5.55556vh 0 0 2.60417vw;
+}
+
+.resources .model_con .res_num .res_num_item {
   width: 7.29167vw;
-  height: 4.62963vh;
+  height: 6.48148vh;
   text-align: center;
-  line-height: 2.31481vh;
+  line-height: 3.24074vh;
   background-image: url("./assets/image/text_bg1.png");
   background-repeat: no-repeat;
   background-size: 100% 100%;
   margin-bottom: 1.38889vh;
 }
 
-.resources .res_num .res_num_item .name {
+.resources .model_con .res_num .res_num_item .name {
   color: #fff;
   font-size: 1.48148vh;
 }
 
-.resources .res_num .res_num_item .num {
+.resources .model_con .res_num .res_num_item .num {
   color: #00DEDF;
   font-size: 1.85185vh;
 }
 
-.resources .percentage {
-  font-size: 1.85185vh;
+.resources .model_con .model_right {
+  width: 60%;
+  height: 100%;
+  border: 1rpx solid red;
+}
+
+.resources .model_con .model_right .percentage {
+  width: 60%;
+  font-size: 3.14815vh;
   color: #fff;
+  text-align: center;
   position: absolute;
-  top: 46%;
-  left: 63%;
+  top: 44%;
 }
 
 .histogram {

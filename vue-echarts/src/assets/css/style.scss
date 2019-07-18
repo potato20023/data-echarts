@@ -80,7 +80,17 @@ position: relative;
             }
             .text{
                 float: left;
+                position: relative;
+                background-image: url('./assets/image/teacher_tab_bg.png');
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                
                 // padding: 10/$vh + vh 0;
+                animation: bg1 1s ease infinite;
+                // animation-name: bg1;
+                // animation-duration:1s;
+                // animation-iteration-count: infinite;
+                // animation-timing-function: ease;
                 .name{
                     font-size: 16/$vh + vh;
                     line-height: 20/$vh + vh;
@@ -103,6 +113,11 @@ position: relative;
                         top:5/$vh + vh;
                     }
                 }
+                
+            }
+            @keyframes bg1 {
+                0% {background-size: 0% 100%;}
+                100% {background-size: 100% 100%;}
             }
         }
         .move{
@@ -149,39 +164,57 @@ position: relative;
     height: 320/$vh + vh;
     position: relative;  
     #resources{
-        width:500/$vw + vw;
+        width:300/$vw + vw;
         height: 270/$vh + vh;
     }
-    .res_num{
-        position: absolute;
-        top: 100/$vh + vh;
-        left: 50/$vw + vw;
-        .res_num_item{
-            width: 140/$vw + vw;
-            height: 50/$vh + vh;
-            text-align: center;
-            line-height: 25/$vh + vh;
-            background-image: url('./assets/image/text_bg1.png');
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            margin-bottom: 15/$vh + vh;
-            .name{
-                color:#fff;
-                font-size: 16/$vh + vh;
+    .model_con{
+        width: 500/$vw + vw;
+        height:270/$vh + vh;
+        display: flex;
+        justify-content: space-between;
+        .res_num{
+            width: 150/$vh + vh;
+            height:170/$vh + vh;
+            // position: absolute;
+            // top: 100/$vh + vh;
+            // left: 50/$vw + vw;
+            padding: 60/$vh + vh 0 0 50/$vw + vw;
+            .res_num_item{
+                width: 140/$vw + vw;
+                height: 70/$vh + vh;
+                text-align: center;
+                line-height: 35/$vh + vh;
+                background-image: url('./assets/image/text_bg1.png');
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                margin-bottom: 15/$vh + vh;
+                .name{
+                    color:#fff;
+                    font-size: 16/$vh + vh;
+                }
+                .num{
+                    color:#00DEDF;
+                    font-size: 20/$vh + vh;
+                }
             }
-            .num{
-                color:#00DEDF;
-                font-size: 20/$vh + vh;
+        }
+        .model_right{
+            width: 60%;
+            height:100%;
+            border:1rpx solid red;
+            .percentage{
+                width: 60%;
+                font-size: 34/$vh + vh;
+                color:#fff;
+                text-align: center;
+                position: absolute;
+                top:44%;
+                // left:60%;
             }
         }
     }
-    .percentage{
-        font-size: 20/$vh + vh;
-        color:#fff;
-        position: absolute;
-        top:46%;
-        left:63%;
-    }
+    
+    
 }
 
 // 备课统计
