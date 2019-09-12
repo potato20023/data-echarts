@@ -5943,11 +5943,8 @@ export default {
       chart.resize();//在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
       
-      // setTimeout(()=>{
-      //   window.onresize = function(){
-      //     chart.resize();//在容器大小发生改变时手动调整图标尺寸
-      //   }
-      // },200) 
+      // off()用于移除通过 on() 方法添加的事件处理程序。避免出现，在屏幕宽高变化地图重绘后，点击一次触发多次点击事件
+      chart.off("click")
       chart.on("click", function(params) {
         // console.log(params)
         // console.log(params.name + "---" + params.dataIndex);

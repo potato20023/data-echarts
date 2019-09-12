@@ -73,6 +73,18 @@ export default {
               textStyle: {
                 color: "#A4E4F7",
                 fontSize:16 * $this.screenHeight / 1080
+              },
+              // y轴的值超过1000，用1k表示
+              formatter:function(value){
+                let str = ''
+                if(value >=0 && value < 1000){
+                  str = value + '  '
+                }else if(value >= 1000 && value < 10000){
+                  str = Math.floor(value / 100) / 10 + "k  ";
+                }else if(value >= 10000){
+                  str = Math.floor(value / 1000) + "k  ";
+                }
+                return str
               }
             },
             splitLine: {
@@ -106,6 +118,18 @@ export default {
                   textStyle:{
                     color:'#f5f5f6',
                     fontSize:18 * $this.screenHeight / 1080
+                  },
+                  // 当数值超过1000时用k表示
+                  formatter: function(params) {
+                    let str = "";
+                    if(params.data >= 0 && params.data < 1000){
+                      str = params.data;
+                    }else if (params.data >= 1000 && params.data < 10000) {
+                      str = Math.floor(params.data / 100) / 10 + "k";
+                    } else if(params.data >= 10000){
+                      str = Math.floor(params.data / 1000) + "k";
+                    }
+                    return str;
                   }
                 }
               }

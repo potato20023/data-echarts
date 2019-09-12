@@ -3,22 +3,20 @@
     <div class="model_title">班级文化统计</div>
     <div id="culture"></div>
   </div>
-  
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import { mapGetters } from "vuex";
 export default {
   name: "culture",
   data() {
-    return {
-    };
+    return {};
   },
   mounted() {
     this.mmm();
   },
-  computed:{
-    ...mapGetters(['cultureNum',"screenWidth","screenHeight"])
+  computed: {
+    ...mapGetters(["cultureNum", "screenWidth", "screenHeight"])
   },
   methods: {
     mmm() {
@@ -46,31 +44,44 @@ export default {
           right: "4%",
           bottom: "3%",
           containLabel: true,
-          height:'80%'      // 柱形图高度
+          height: "80%" // 柱形图高度
         },
         xAxis: [
           {
             type: "category",
-            data: ["班级相册","手抄报"],
+            data: ["班级相册", "手抄报"],
             axisTick: {
               alignWithLabel: true
             },
-            axisLabel:{    // 横轴文字样式
-                textStyle:{
-                    color:'#A4E4F7',
-                    fontSize:18 * $this.screenHeight / 1080
-                }
+            axisLabel: {
+              // 横轴文字样式
+              textStyle: {
+                color: "#A4E4F7",
+                fontSize: (18 * $this.screenHeight) / 1080
+              }
             }
           }
         ],
         yAxis: [
           {
             type: "value",
-            axisLabel:{
-                textStyle:{
-                    color:'#A4E4F7',
-                    fontSize:16 * $this.screenHeight / 1080
+            axisLabel: {
+              textStyle: {
+                color: "#A4E4F7",
+                fontSize: (16 * $this.screenHeight) / 1080
+              },
+              // y轴的值超过1000，用1k表示
+              formatter:function(value){
+                let str = ''
+                if(value >=0 && value < 1000){
+                  str = value + '  '
+                }else if(value >= 1000 && value < 10000){
+                  str = Math.floor(value / 100) / 10 + "k  ";
+                }else if(value >= 10000){
+                  str = Math.floor(value / 1000) + "k  ";
                 }
+                return str
+              }
             },
             splitLine: {
               // 分隔线样式
@@ -85,23 +96,39 @@ export default {
           {
             name: "",
             type: "bar",
-            barWidth: "30%",   // 圆柱宽度
-            data: [$this.cultureNum.photoNum,$this.cultureNum.paperNum],
+            barWidth: "30%", // 圆柱宽度
+            data: [$this.cultureNum.photoNum, $this.cultureNum.paperNum],
             itemStyle: {
-              normal: {   
-                color: new $this.$echarts.graphic.LinearGradient(   // 圆柱颜色(渐变)
-                  0,0,0,1, // 0,0,1,0表示从左向右    0,0,0,1表示从上向下
+              normal: {
+                color: new $this.$echarts.graphic.LinearGradient( // 圆柱颜色(渐变)
+                  0,
+                  0,
+                  0,
+                  1, // 0,0,1,0表示从左向右    0,0,0,1表示从上向下
                   [
-                    { offset: 0, color: "#2950FC" },// 上
+                    { offset: 0, color: "#2950FC" }, // 上
                     { offset: 1, color: "#3E98F3" } // 下
                   ]
                 ),
-                label:{    // 圆柱上方显示数字
-                  show:true,
-                  position:'top',
-                  textStyle:{
-                    color:'#f5f5f6',
-                    fontSize:18 * $this.screenHeight / 1080
+                label: {
+                  // 圆柱上方显示数字
+                  show: true,
+                  position: "top",
+                  textStyle: {
+                    color: "#f5f5f6",
+                    fontSize: (18 * $this.screenHeight) / 1080
+                  },
+                  // 当数值超过1000时用k表示
+                  formatter: function(params) {
+                    let str = "";
+                    if(params.data >= 0 && params.data < 1000){
+                      str = params.data;
+                    }else if (params.data >= 1000 && params.data < 10000) {
+                      str = Math.floor(params.data / 100) / 10 + "k";
+                    } else if(params.data >= 10000){
+                      str = Math.floor(params.data / 1000) + "k";
+                    }
+                    return str;
                   }
                 }
               }
@@ -111,24 +138,24 @@ export default {
       };
       var chart = this.$echarts.init(document.getElementById("culture"));
       chart.clear();
-      chart.resize();//在容器大小发生改变时手动调整图标尺寸
+      chart.resize(); //在容器大小发生改变时手动调整图标尺寸
       chart.setOption(option);
       // setTimeout(()=>{
       //   window.onresize = function(){
       //     chart.resize();//在容器大小发生改变时手动调整图标尺寸
       //   }
-      // },200) 
+      // },200)
     }
   },
-  watch:{
-    cultureNum:function(res){
-      this.mmm()
+  watch: {
+    cultureNum: function(res) {
+      this.mmm();
     },
-    screenWidth:function(res){
+    screenWidth: function(res) {
       // console.log(res)
-      this.mmm()
+      this.mmm();
     },
-    screenHeight:function(res){
+    screenHeight: function(res) {
       this.mmm();
     }
   }
