@@ -163,6 +163,9 @@ position: relative;
     width: 500/$vw + vw;
     height: 320/$vh + vh;
     position: relative;  
+    background-image: url('./assets/image/bg.gif');
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
     #resources{
         width:300/$vw + vw;
         height: 270/$vh + vh;
@@ -173,12 +176,13 @@ position: relative;
         display: flex;
         justify-content: space-between;
         .res_num{
-            width: 150/$vh + vh;
+            width: 500/$vh + vh;
             height:170/$vh + vh;
             // position: absolute;
             // top: 100/$vh + vh;
             // left: 50/$vw + vw;
-            padding: 60/$vh + vh 0 0 50/$vw + vw;
+            // padding: 60/$vh + vh 0 0 50/$vw + vw;
+            padding: 60/$vh + vh 60/$vh + vh 0 60/$vh + vh;
             .res_num_item{
                 width: 140/$vw + vw;
                 height: 70/$vh + vh;
@@ -190,18 +194,26 @@ position: relative;
                 margin-bottom: 15/$vh + vh;
                 .name{
                     color:#fff;
-                    font-size: 16/$vh + vh;
+                    font-size: 18/$vh + vh;
                 }
                 .num{
                     color:#00DEDF;
-                    font-size: 20/$vh + vh;
+                    font-size: 22/$vh + vh;
                 }
+            }
+            .res_left{
+                float:left;
+            }
+            .res_right{
+                float:right;
             }
         }
         .model_right{
             width: 60%;
             height:100%;
-            border:1rpx solid red;
+            text-align: center;
+            padding-top:10/$vh + vh;
+
             .percentage{
                 width: 60%;
                 font-size: 34/$vh + vh;
@@ -211,6 +223,21 @@ position: relative;
                 top:44%;
                 // left:60%;
             }
+            img{
+                width:250/$vh + vh;
+                height:250/$vh + vh;
+            }
+        }
+    }
+    .res_bg{
+        position: absolute;
+        top: 0;
+        left:0;
+        width: 500/$vw + vw;
+        height: 320/$vh + vh;
+        img{
+            width: 500/$vw + vw;
+            height: 320/$vh + vh;
         }
     }
     

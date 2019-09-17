@@ -1,24 +1,32 @@
 <template>
   <div class="resources model">
+    
     <div class="model_title">
-      资源使用率
+      资源使用情况
     </div>
     <div class="model_con">
       <div class="res_num">
-        <div class="res_num_item">
-          <p class="name">资源使用量</p>
+        <div class="res_num_item res_left">
+          <p class="name">资源下载量</p>
           <p class="num">{{resourceNum}}</p>
         </div>
-        <div class="res_num_item">
+        <div class="res_num_item res_right">
           <p class="name">资源总量</p>
           <p class="num">{{allNum}}</p>
         </div>
       </div>
-      <div class="model_right">
-        <div v-if="resourceNum >= 0 && allNum > 0" class="percentage">{{Math.round(resourceNum/allNum*100)}}%</div>
+
+      <!-- <div class="model_right">
+        <img src="@/assets/image/zhanwei.gif" alt="">
+      </div> -->
+      <!-- <div class="model_right">
+        <div v-if="resourceNum >= 0 && allNum > 0" class="percentage">{{prec}}%</div>
         <div id="resources"></div>
-      </div>
+      </div> -->
       
+    </div>
+    <div class="res_bg">
+      <img src="@/assets/image/model_bg.png" alt="">
     </div>
     
   </div>
@@ -31,16 +39,32 @@ import { mapGetters,mapState } from "vuex";
 export default {
   data() {
     return {
-      
+      num:0,
+      all:0,
     };
   },
   mounted() {
-    if(this.allNum){
-      this.mmm()
-    } 
+    
+    // this.per()
+    // setTimeout(()=>{
+    //       this.mmm()
+    //     },1000)
+    
+      
   },
+
   computed: {
-    ...mapGetters(["resourceNum","allNum","screenWidth","screenHeight"])    
+    ...mapGetters(["resourceNum","allNum","screenWidth","screenHeight"]),
+    prec(){
+      this.num = this.resourceNum;
+      this.all = this.allNum;
+      if(this.num > this.all){
+        this.num  = Math.round(this.all * 0.8 + (this.num % this.all) * 0.2)  
+        return  Math.round(this.num/this.all*100)
+      }else{
+        return  Math.round(this.num/this.all*100)
+      }
+    }
   },
   methods: {
     mmm() {
@@ -54,7 +78,8 @@ export default {
                 show:true,
                 orient: "horizontal",    // 图例列表的布局朝向 (横向)
                 // x: "right",
-                y:'bottom',
+                // y:'bottom',
+                bottom:20,
                 right:30,
                 textStyle:{    
                   color:'#f3fcff',
@@ -68,10 +93,10 @@ export default {
                   name: "资源使用率",
                   type: "pie",
                   radius: ["40%", "65%"],   // 圆环大小
-                  center:['50%','45%'],
+                  center:['50%','43%'],
                   data: [
-                      { value: $this.resourceNum, name: "资源使用量" },
-                      { value: ($this.allNum - $this.resourceNum), name: "资源未使用量" },
+                      { value: $this.num, name: "资源使用量" },
+                      { value: ($this.all - $this.num), name: "资源未使用量" },
                       // { value: 0, name: "资源使用量" },
                       // { value: 0, name: "资源未使用量" }
                   ],
@@ -97,22 +122,24 @@ export default {
     }
   },
   watch:{
-    resourceNum:function(res){
-      this.mmm()
-    },
-    allNum:function(res){
-      this.mmm()
-    },
-    screenWidth:function(res){
-      // console.log(res)
-      this.mmm()
-    },
-    screenHeight:function(res){
-      this.mmm();
-    }
+    // num:function(res){
+    //   this.mmm();
+    // },
+    // all:function(res){
+    //   this.mmm();
+    // },
+    // screenWidth:function(res){
+    //   // console.log(res)
+    //   this.mmm()
+    // },
+    // screenHeight:function(res){
+    //   this.mmm();
+    // }
   }
 };
 </script>
 
 <style>
+
+
 </style>
